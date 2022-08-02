@@ -82,7 +82,6 @@ io.on('connection', (socket) => {
   socket.on('admin', msg => {
     // type, current
     const msgAction = JSON.parse(msg);
-    console.log(msgAction);
     changeImage(msgAction.type, msgAction.search);
     const selectedImage = JSON.stringify({currentImage, ...images[currentImage]});
     io.emit("changeImage", selectedImage);
