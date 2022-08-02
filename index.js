@@ -61,7 +61,8 @@ const images = [
   {info: {UID: "626246755", author:"Forg", title:"Protejan su sonrisa el dia de mañana :')", platform:"PC", discordID: "Forg#2872", socialNetwork: ""}, url: "https://media.discordapp.net/attachments/945509633609568286/1003804425661448332/IMG_20220801_180959.jpg?width=694&height=676", scores: {}},
   {info: {UID: "645690805", author:"Charlie el Cerdo", title:"Dibujo hecho a las prisas pero con amor, No tengo esperanzas de ganar pero quién sabe 1% de probabilidad pero 99% de fé", platform:"Móvil", discordID: "Charlie el Cerdo#7906", socialNetwork: ""}, url: "https://media.discordapp.net/attachments/945509633609568286/1003837629986525275/IMG-20220801-WA0017.jpg", scores: {}},
   {info: {UID: "615699604", author:"husty !", title:"algo rapido el fondo pero espero este bien :YoimiyaWink: suerte a todos", platform:"PC", discordID: "husty !#8656", socialNetwork: "@husty_002"}, url: "https://media.discordapp.net/attachments/945509633609568286/1003856843162001428/aaa.png?width=575&height=676", scores: {}},
-  {info: {UID: "707501284", author:"布莱克说", title:"", platform:"PC", discordID: "布莱克说#6604", socialNetwork: ""}, url: "https://media.discordapp.net/attachments/1000946648874225766/1003805965046530059/unknown.png?width=750&height=676", scores: {}}
+  {info: {UID: "707501284", author:"布莱克说", title:"", platform:"PC", discordID: "布莱克说#6604", socialNetwork: ""}, url: "https://media.discordapp.net/attachments/1000946648874225766/1003805965046530059/unknown.png?width=750&height=676", scores: {}},
+  {info: {UID: "623924434", author:"xam", title:"", platform:"PX", discordID: "xam#3121", socialNetwork: ""}, url: "https://media.discordapp.net/attachments/1000946648874225766/1003897211928727602/586_sin_titulo_20220802002759.png?width=710&height=473", scores: {}}
 ];
 //{info: {UID: "", author:"", title:"", platform:"", discordID: "", socialNetwork: ""}, url: "", scores: {}}
 
