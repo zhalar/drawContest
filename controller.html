@@ -11,12 +11,12 @@
           
         </div>
       </div>
-      <div class="input-group mb-3">
+      <!-- <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">@</span>
         </div>
         <input type="text" class="form-control" placeholder="Clave de Usuario" aria-label="Clave de Usuario" aria-describedby="basic-addon1">
-      </div>
+      </div> -->
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -27,8 +27,21 @@
           <button type="button" class="btn btn-secondary" onclick="action(0)">Buscar</button>
         </div>
       </div>
-
-      <div class="row">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">ID</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Filtro" aria-label="Filtro" aria-describedby="basic-addon1" id="searchID">
+        <div class="col-3">
+          <button type="button" class="btn btn-secondary" onclick="searchByID()">Buscar</button>
+        </div>
+      </div>
+      <div class="row" style="height: 200px;">
+        <div class="col-12" style="text-align: center;">
+          <img class="rounded mx-auto d-block" style="height: 200px;" alt="Imagen" id="imagediv">
+        </div>
+      </div>
+      <div class="row" style="height: 100px;">
         <div class="col-12">
           <span>Imagen actual: </span><span id="imageData" style="font-weight: bold;"></span>
         </div>
@@ -50,11 +63,14 @@
       var score = document.getElementById('score');
       const image_data = document.getElementById("imageData");
       const search = document.getElementById('search');
+      const searchID = document.getElementById('searchID');
+      const img = document.getElementById("imagediv");
       let currentImage = 0;
 
       socket.on('changeImage', (msg) => {
         const dataObj = JSON.parse(msg);
-        image_data.innerHTML = dataObj.info.author + ", " + dataObj.info.title + ", index real: " + dataObj.currentImage;
+        img.src = dataObj.url;
+        image_data.innerHTML = "#" + (dataObj.currentImage + 1) + ", Autor: " + dataObj.info.author + ", " + dataObj.info.title;
         console.log(dataObj);
       });
       
@@ -67,6 +83,11 @@
         const toSearch = search.value ? search.value : "";
         const send = {type: type, search: toSearch};
         socket.emit('admin', JSON.stringify(send));
+      }
+      function searchByID(){
+        //-1 atrás, 1 delante, 0 filtro
+        const toSearch = searchID.value ? searchID.value : 1;
+        socket.emit('searchID', toSearch);
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

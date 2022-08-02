@@ -88,11 +88,25 @@ io.on('connection', (socket) => {
     io.emit("changeImage", selectedImage);
   });
 
+  socket.on('searchID', msg => {
+    changeImageByID(parseInt(msg));
+    const selectedImage = JSON.stringify({currentImage, ...images[currentImage]});
+    io.emit("changeImage", selectedImage);
+  });
+
+
   socket.on("disconnect", (reason) => {
     socket.disconnect();
   });
 
 });
+function changeImageByID(id){
+  if((id) > 0 && ((id)<(imagesLenght - 1)) ){
+    currentImage = id - 1;
+  } else {
+    currentImage = 0;
+  }
+}
 
 function changeImage(type, search){
   if(type > 0){
